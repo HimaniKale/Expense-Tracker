@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Expense Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Add your expenses here:</h4>
+      <form id="expenseForm">
+        <div class="form-group">
+          <label for="categorySelect">Select Category:</label>
+          <select class="form-control" id="categorySelect">
+            <option value="food">Food</option>
+            <option value="utilities">Utilities</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="medical">Medical</option>
+            <option value="education">Education</option>
+            <!-- Add more categories as needed -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="expenseInput">Expense Amount:</label>
+          <input type="number" class="form-control" id="expenseInput" placeholder="Enter expense amount" min="0">
+        </div>
+        <div class="form-group">
+          <label for="set-date">Date: </label>
+          <input type="date" class="form-control" id="set-date" name="expenseDate">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Expense</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h4>Expense Summary:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Expense</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTableBody">
+          <!-- Expense data will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('expenseForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    var category = document.getElementById('categorySelect').value;
+    var expenseAmount = document.getElementById('expenseInput').value;
+    var expenseDate = document.getElementById('set-date').value;
+
+    // Add expense data to the table
+    var expenseTableRow = "<tr><td>" + category + "</td><td>Rs." + expenseAmount + "</td><td>" + expenseDate + "</td></tr>";
+    document.getElementById('expenseTableBody').innerHTML += expenseTableRow;
+
+    // Clear expense input fields
+    document.getElementById('expenseInput').value = '';
+
+    // Send expense data to backend (you'll need to implement this part)
+    // Example: sendDataToBackend(category, expenseAmount);
+  });
+
+  // Function to send expense data to backend (you'll need to implement this part)
+  // function sendDataToBackend(category, expenseAmount) {
+  //   // Make an AJAX request to your backend to store the expense data
+  //   // Example using fetch API:
+  //   // fetch('/store_expense', {
+  //   //   method: 'POST',
+  //   //   body: JSON.stringify({ category: category, amount: expenseAmount }),
+  //   //   headers: {
+  //   //     'Content-Type': 'application/json'
+  //   //   }
+  //   // }).then(response => {
+  //   //   // Handle response
+  //   // });
+  // }
+</script>
+{% endblock %}
