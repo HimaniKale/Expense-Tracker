@@ -1,15 +1,43 @@
 {% extends "base.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-	<h2 align = "center">We are here to help you track your expenses !!</h2>
-	<style>
-    body {
-        background-image: url('/static/images/image12.png');
-        background-size: cover;
-        background-position: right;
-        background-attachment: fixed;
-        background-color: #f4f4f4;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 
+	<h2 align = "center">We are here to help you track your expenses !!</h2>
+    <section class="hero">
+        <div class="image-container">
+          <img src="\static\images\pp.jpg" alt="Person managing finances on laptop">
+          <center>
+          
+      <section class="hero">
+          <h1 class="hero-title"> Take Control of Your Finances Today!<h1>
+            <p class="hero-tagline">Effortlessly Track Your Spending and Save More.</p>
+           <p class="floating-text2">Simplify Your Budget and Achieve Financial Freedom.</p>
+            
+          <button class="floating-button">Click Me</button></center>
+        </div>
+         
+        </section>
+        <section class="benefits">
+          <h2>Why Choose Our Expense Tracker?</h2>
+          <div class="benefit-card">
+             <h3>Easy to Use</h3>
+            <p>Simple interface and intuitive design for effortless tracking.</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Powerful Insights</h3>
+            <p>Gain valuable insights into your spending habits and make informed decisions.</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Secure and Reliable</h3>
+            <p>Your data is protected with industry-standard security measures.</p>
+          </div>
+        </section>
+        <section class="call-to-action">
+          <h2>Ready to Start Tracking Your Expenses?</h2>
+          <button class="cta-button">Sign Up Now!</button>
+        </section>
+        <footer>
+          <p>&copy; 2024 Expense Tracker App</p>
+        </footer>   
 {% endblock %}
