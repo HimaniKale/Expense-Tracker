@@ -155,7 +155,6 @@ def test1():
 def test2():
     return render_template("addexp.html")
 
-
 @app.route("/profile")
 def test3():
     return render_template("profile.html")
